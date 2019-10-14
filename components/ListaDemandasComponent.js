@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { tudo } from '../shared/dados';
 
-class Lista extends Component {
+class ListaDemandas extends Component {
     
     constructor(props){
         super(props);
@@ -24,22 +24,23 @@ class Lista extends Component {
 
             const { navigate } = this.props.navigation;
 
-            if (item.category != this.props.navigation.getParam('categoria','')) {
-                return;
-            } else {
+            if(item.demands[0]!=null){
+                for (i=0; i<item.demands.length; i++){
+                return (
+                    <ListItem 
+                        key={index}
+                        title={item.demands[i].title}
+                        subtitle={item.demands[i].description}
+                        onPress={() => navigate('DemandaDetalhe', {empresaId: item.id}, {demandaId: i})}
+                        bottomDivider
+                    />
+                );
+            };}
+            }
 
-            return (
-                <ListItem 
-                    key={index}
-                    title={item.name}
-                    subtitle={item.description}
-                    onPress={() => navigate('EmpresaDetalhe', {empresaId: item.id})}
-                    bottomDivider
-                />
-            );
-        };
+    
 
-        }
+        
 
         return(
             <View style={styles.container}>
@@ -55,7 +56,7 @@ class Lista extends Component {
     }
 }
 
-export default Lista;
+export default ListaDemandas;
 
 const styles = StyleSheet.create({
     container: {

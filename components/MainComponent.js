@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { tudo } from '../shared/dados';
 import Lista from './ListaComponent';
+import EmpresaDetalhe from './DetalheComponent';
+import { createStackNavigator } from 'react-navigation';
 
-export default class Main extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            dados : tudo
-        }
-    }
+
+
+class Main extends Component {
 
     render(){
         return(
-            <Lista data={this.state.dados} />
+            <View style={styles.container}>
+                <MenuNavigator />
+            </View>
     );
     }
 }
+
+export default Main;
+
+const styles = StyleSheet.create({
+    container: {
+      flex:1,
+      backgroundColor: '#ff7373',
+      color: '#ddd'
+    }
+  });
