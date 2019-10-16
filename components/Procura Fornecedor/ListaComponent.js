@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { tudo } from '../shared/dados';
+import { tudo } from '../../shared/dados';
 
 class Lista extends Component {
     
@@ -24,15 +24,27 @@ class Lista extends Component {
 
             const { navigate } = this.props.navigation;
 
-            if (item.category != this.props.navigation.getParam('categoria','')) {
+            if (this.props.navigation.getParam('categoria','') == 'Todas as empresas') {
+                return (
+                    <ListItem 
+                        key={index}
+                        title={<Text style={styles.titulo}>{item.name}</Text>}
+                        subtitle={<Text style={styles.subtitulo}>{item.description}</Text>}
+                        onPress={() => navigate('EmpresaDetalhe', {empresaId: item.id})}
+                        bottomDivider
+                    />
+                );
+            }
+
+            else if (item.category != this.props.navigation.getParam('categoria','')) {
                 return;
             } else {
 
             return (
                 <ListItem 
                     key={index}
-                    title={item.name}
-                    subtitle={item.description}
+                    title={<Text style={styles.titulo}>{item.name}</Text>}
+                    subtitle={<Text style={styles.subtitulo}>{item.description}</Text>}
                     onPress={() => navigate('EmpresaDetalhe', {empresaId: item.id})}
                     bottomDivider
                 />
@@ -45,7 +57,7 @@ class Lista extends Component {
             <View style={styles.container}>
 
             <FlatList 
-                data={this.state.dados}
+                data={this.state.dados.empresas}
                 renderItem={renderizar}
                 keyExtractor={item => item.id.toString()}
             />
@@ -63,5 +75,13 @@ const styles = StyleSheet.create({
       fontSize: 18,
       backgroundColor: '#ff7373',
       color: '#ddd'
+    },
+    titulo: {
+        fontSize:18,
+        fontWeight:'bold',
+    },
+    subtitulo: {
+        fontSize:13,
+       color: '#555555'
     }
   });

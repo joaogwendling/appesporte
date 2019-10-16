@@ -1,4 +1,4 @@
-export const tudo = [
+export const tudo = { empresas : [
     {
         id:0,
         name: 'Centauro',
@@ -10,10 +10,6 @@ export const tudo = [
         contact: '(51)99999999',
         user: 'centauro',
         password: 'senhacentauro',
-        demands:[{title:'Orçamento para 50 Chuteiras', desc:'Estamos precisando de cinquenta chuteiras bla bla bla'},
-                {title:'Toucas de natação', desc:'Bom dia, queremos 150 toucas de natação para evento próximo da nossa companhia'}
-
-            ]
     },
     {
         id:1,
@@ -26,9 +22,6 @@ export const tudo = [
         contact: '(51)88888888',
         user: 'paqueta',
         password:'senhapaqueta',
-        demands:[{title:null, desc:null}
-
-            ]
     },
     {
         id:2,
@@ -41,9 +34,6 @@ export const tudo = [
         contact: '(51)77777777',
         user:'genius',
         password:'senhagenius',
-        demands:[{title:null, desc:null}
-
-            ]
     },
     {
         id:3,
@@ -56,9 +46,31 @@ export const tudo = [
         contact:'(51)666666666',
         user:'aoc',
         password:'senhaaoc',
-        demands:[{title:'Orçamento Bermudas', desc:'Oito mil bermudas por favor'}
-
-
-            ]
     },
-];
+],
+demandas: [
+    {
+        id:0,
+        idempresa:0,
+        title:'Orçamento para 50 Chuteiras',
+        desc:'Estamos precisando de cinquenta chuteiras bla bla bla'
+    },
+    {
+        id:1,
+        idempresa:0,
+        title:'Toucas de natação', 
+        desc:'Bom dia, queremos 150 toucas de natação para evento próximo da nossa companhia'
+    },
+    {
+        id:2,
+        idempresa:2,
+        title:'Orçamento 25 Goleiras',
+        desc:'Somos a Genius e queremos goleiras'
+    },
+    {
+        id:3,
+        idempresa:2,
+        title:'Orçamento Bermudas', 
+        desc:'Oito mil bermudas por favor'
+    },
+]};

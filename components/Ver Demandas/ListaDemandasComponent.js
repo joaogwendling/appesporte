@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { tudo } from '../shared/dados';
+import { tudo } from '../../shared/dados';
 
 class ListaDemandas extends Component {
     
@@ -20,33 +20,32 @@ class ListaDemandas extends Component {
    
 
     render(){
+        
         const renderizar = ({item, index}) => {
 
             const { navigate } = this.props.navigation;
 
-            if(item.demands[0]!=null){
-                for (i=0; i<item.demands.length; i++){
-                return (
-                    <ListItem 
-                        key={index}
-                        title={item.demands[i].title}
-                        subtitle={item.demands[i].description}
-                        onPress={() => navigate('DemandaDetalhe', {empresaId: item.id}, {demandaId: i})}
-                        bottomDivider
-                    />
-                );
-            };}
-            }
+            return (
+                <ListItem 
+                    key={index}
+                    title={<Text style={styles.titulo}>{item.title}</Text>}
+                    subtitle={item.desc}
+                    onPress={() => navigate('DemandaDetalhe', {empresaId: item.idempresa, demandaId: item.id})}
+                    bottomDivider
+                />
+            );
+            }; 
 
-    
+            
 
-        
+                    
+
 
         return(
             <View style={styles.container}>
 
             <FlatList 
-                data={this.state.dados}
+                data={this.state.dados.demandas}
                 renderItem={renderizar}
                 keyExtractor={item => item.id.toString()}
             />
@@ -64,5 +63,8 @@ const styles = StyleSheet.create({
       fontSize: 18,
       backgroundColor: '#ff7373',
       color: '#ddd'
+    },
+    titulo: {
+        fontWeight: 'bold'
     }
   });

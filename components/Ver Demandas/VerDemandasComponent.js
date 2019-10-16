@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { tudo } from '../shared/dados';
+import { tudo } from '../../shared/dados';
 
 class VerDemandas extends Component{
 

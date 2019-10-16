@@ -13,9 +13,9 @@ class MenuPrincipal extends Component{
 
     render(){
 
-        const menuopcoes = ['Procurar Fornecedor', 'Lanças Demanda', 'Verificar Demandas', 'Divulgar Oferta'];
+        const menuopcoes = ['Procurar Fornecedor', 'Lançar Demanda', 'Verificar Demandas', 'Divulgar Oferta'];
 
-        const componentes = ['Pesquisa','Demanda','ListaDemandas','Ofertas'];
+        const componentes = ['Pesquisa','LancaDemanda','ListaDemandas','Ofertas'];
 
         const renderizar = ({item, index}) => {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { tudo } from '../shared/dados';
+import { tudo } from '../../shared/dados';
 
 class Pesquisa extends Component{
 
@@ -11,7 +11,7 @@ class Pesquisa extends Component{
 
     render(){
 
-        const categorias = ['Artigos Desportivos', 'Uniformes', 'Bola', 'Chuteira']
+        const categorias = ['Todas as empresas','Artigos Desportivos', 'Uniformes', 'Bola', 'Chuteira']
 
         const renderizar = ({item, index}) => {
 
